@@ -2,8 +2,15 @@ package Palindrome;
 
 public class UseCasePalindromeCheckerApp {
     public static void main(String[] args) {
-        System.out.println(" Welcome To The Palindrome Checker Management System");
-        System.out.println("Version: 1.0");
-        System.out.println("System Initialized successfully...");
+        String text = "madam";
+        String reversed = new StringBuilder(text).reverse().toString();
+        boolean isPalindrome;
+        if (text.equalsIgnoreCase(reversed)) {
+            isPalindrome = true;
+        } else {
+            isPalindrome = false;
+        }
+        System.out.println("Input text: " + text);
+        System.out.println("is it a palindrome?: " + isPalindrome);
     }
 }
