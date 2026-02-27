@@ -18,10 +18,6 @@ public class UseCasePalindromeCheckerApp {
                 break;
             }
         }
-        if (isPalindrome) {
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not Palindrome");
-        }
+        System.out.println("isPalindrome : " + isPalindrome);
     }
 }
