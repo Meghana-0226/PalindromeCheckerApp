@@ -1,26 +1,27 @@
 package Palindrome;
 
-import java.util.Queue;
 import java.util.LinkedList;
-import java.util.Stack;
-
 public class UseCasePalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "civic";
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
-        for (char c : input.toCharArray()) {
-            queue.add(c);
-            stack.push(c);
+        String input = "level";
+        System.out.println("Input: " + input);
+        LinkedList<Character> list = new LinkedList<>();
+        for (char ch : input.toCharArray()) {
+            list.add(ch);
         }
         boolean isPalindrome = true;
-        while (!queue.isEmpty()) {
-            if (!queue.remove().equals(stack.pop())) {
+        while (list.size() > 1) {
+            char first = list.removeFirst();
+            char last = list.removeLast();
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
         }
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        if (isPalindrome) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
     }
 }
