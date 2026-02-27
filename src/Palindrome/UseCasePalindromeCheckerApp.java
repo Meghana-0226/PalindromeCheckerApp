@@ -1,20 +1,19 @@
 package Palindrome;
 
+import java.util.Scanner;
 public class UseCasePalindromeCheckerApp {
-    public static boolean isPalindrome(String str, int start, int end) {
-
-        if (start >= end) {
-            return true;
-        }
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-        return isPalindrome(str, start + 1, end - 1);
-    }
     public static void main(String[] args) {
-        String input = "madam";
-        System.out.println("input:" + input);
-        boolean result = isPalindrome(input, 0, input.length() - 1);
-        System.out.println("isPalindrome : " + result);
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine().trim();
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        boolean isPalindrome = true;
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println("isPalindrome?  : " + isPalindrome);
+        sc.close();
     }
 }
